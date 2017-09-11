@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>存在某值、弹出参数、数组后添加任意个数组元素</title>
+</head>
+<body>
+	<script>
+		// 数组存在
+		//     存在某一个值,存在true,不存在false
+		var arr=[1,2,6,8,9,44];
+		var result = exist(arr,11);
+		alert(result);
+		function exist(arr,value){   //如果arr不是一个数组，而是一个数字，会弹出输入有误
+			if(!(typeof arr == 'object' && arguments.length>1)){
+				return '输入有误';
+			}
+		    for(var i=0;i<arr.length;i++){
+		    	if(arr[i]==value){
+		    		return true;
+		    	}
+		    }
+		    return false;
+		}
+
+
+		// 弹出参数
+		var fn = function(value){
+			alert(value);
+		}
+		fn(fn);
+
+
+		// 在数组后面添加任意个数组元素
+		var arr=[1,2,3,4,5,6,7,8,9];
+		push(arr,'x','y','z');
+		function push(arr){
+			for(var i=1;i<arguments.length;i++){
+				arr[arr.length]=arguments[i];
+			}
+			alert(arr);
+		}
+
+	</script>
+</body>
+</html>
